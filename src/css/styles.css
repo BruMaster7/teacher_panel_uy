@@ -24,25 +24,32 @@ h1, h2, h3, p {
     font-family: var(--font-family);
 }
 
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
 .head {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 40px;
     margin: 20px auto;
 }
 
-.avatar {
-    min-width: 110%;
+.avatar-container {
+    max-width: 220px;
+    max-height: 220px; 
+    border-radius: 50%; 
+    overflow: hidden;
+  }
+
+img.avatar {
+    width: 100%;
     height: 100%;
-    border-radius: 100%;
-    background-image: url('/src/img/avatar.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
+    object-position: top center;
 }
 
 main {
@@ -57,6 +64,16 @@ main {
     gap: 20px;
 }
 
+@media screen and (min-width: 768px) {
+    .head {
+        flex-direction: row;
+    }
+
+    .buttons {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
 button {
     max-width: 100%;
     display: flex;
@@ -67,7 +84,7 @@ button {
     color: var(--text-color);
     font-family: var(--font-family);
     border: 10px solid var(--text-color);
-    font-size: 1.2rem;
+    font-size: 2rem;
     padding: 10px 20px;
     border-radius: 30px;
     cursor: pointer;
@@ -76,12 +93,6 @@ button {
 button:hover {
     background-color: var(--text-color);
     color: var(--primary-color);
-}
-
-span {
-    font-family: var(--font-family);
-    font-size: 2rem;
-    color: var(--text-color);
 }
 
 .vector {
